@@ -1616,6 +1616,11 @@ type Patient = {|
           <types:payload type="Patient"/>
         </types:message>
       </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="Patient"/>
+        </types:message>
+      </types:output-event>
     </types:processor-declaration>
   </types:enrichment>
   <types:enrichment select="#31dc4157-18ad-4abc-92fd-caf6ed0c8e6b">

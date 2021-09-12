@@ -7,7 +7,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd">
 	<flow name="getPatientImpl" doc:id="009bed3f-e1f6-435e-a6b3-e25103bf7f32" >
 		<salesforce:query doc:name="Query" doc:id="e3df6f41-c9f0-4bc8-b967-5ff0d275dfa2" config-ref="Salesforce_Config">
-			<salesforce:salesforce-query ><![CDATA[select pid__c,Name,HealthCloudGA__BirthDate__pc,HealthCloudGA__Gender__pc,BillingCity from Account]]></salesforce:salesforce-query>
+			<salesforce:salesforce-query ><![CDATA[select pid__c,Name,birthdate_H__c,gender_H__c,BillingCity from Account]]></salesforce:salesforce-query>
 		</salesforce:query>
 		<ee:transform doc:name="Transform Message" doc:id="31dc4157-18ad-4abc-92fd-caf6ed0c8e6b" >
 			<ee:message >
@@ -28,7 +28,8 @@ output application/json
 	Pid__c :payload.id,
     Name:  payload.name[0].use,
     BillingCity:payload.address[0].city,
-    HealthCloudGA__BirthDate__pc:payload.birthDate
+    birthdate_H__c:payload.birthDate,
+    gender_H__c:payload.gender
 	
 }]]]></ee:set-payload>
 			</ee:message>
